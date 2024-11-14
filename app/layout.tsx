@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import '@/assets/styles/global.css';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 type RootLayoutProps = {
     children: ReactNode;
@@ -14,9 +16,11 @@ export const metadata = {
 const RootLayout = ({ children }: RootLayoutProps) => {
     return (<html>
         <body>
+            <Navbar />
             <main>
                 {children}
             </main>
+            <Footer />
         </body>
     </html>);
 }
