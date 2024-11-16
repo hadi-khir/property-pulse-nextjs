@@ -1,14 +1,18 @@
+// @ts-ignore
+import connectDB from "@/config/db";
+import Property from "@/models/Property";
 
 type PropertyPageProps = {
-    params: {
-        id: number
-    }
-}
+  params: {
+    id: number;
+  };
+};
 
 const PropertyPage = async ({ params }: PropertyPageProps) => {
+  await connectDB();
+  const property = await Property.findById(params.id).lean();
 
-    const { id } = await params;
-    return (<div>Property Page {id}</div>);
-}
+  return <section>{property.name}</section>``;
+};
 
 export default PropertyPage;
